@@ -9,5 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.28.1"
+  "packageManager": "pnpm@10.28.1",
+  "dependencies": {
+    "@mini-react/react": "workspace:*",
+    "@mini-react/shared": "workspace:*"
+  }
 }

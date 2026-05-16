@@ -1,3 +1,0 @@
-export {
-  createElement
-} from './ReactElement'
