@@ -20,10 +20,10 @@ export class FiberNode {
   /**
    * Fiber树结构
    */
-  return: FiberNode | null = null
-  child: FiberNode | null = null
-  sibling: FiberNode | null = null
-  index: number = 0
+  return: FiberNode | null = null // 父节点
+  child: FiberNode | null = null // 第一个子节点
+  sibling: FiberNode | null = null // 兄弟节点
+  index: number = 0 // 节点的索引
 
   // 输入Props和状态
   pendingProps: any = null
@@ -37,7 +37,6 @@ export class FiberNode {
   // Fiber树双缓存机制
   alternate: FiberNode | null = null
 
-  //TODO: 为什么实例化只有这几个属性？
   constructor(
     tag: number,
     pendingProps: any,
@@ -46,6 +45,16 @@ export class FiberNode {
     this.tag = tag
     this.pendingProps = pendingProps
     this.key = key
+
+    this.stateNode = null
+    this.type = null
+
+    this.return = null
+    this.sibling = null
+    this.child = null
+
+    this.pendingProps = pendingProps
+    this.memoizedProps = null
   }
 
 }

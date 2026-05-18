@@ -34,11 +34,20 @@ importers:
         specifier: ~6.0.3
         version: 6.0.3
 
+  packages/react-dom:
+    dependencies:
+      '@mini-react/reconciler':
+        specifier: workspace:*
+        version: link:../reconciler
+
   packages/reconciler:
     dependencies:
       '@mini-react/react':
         specifier: workspace:*
         version: link:../react
+      '@mini-react/react-dom':
+        specifier: workspace:*
+        version: link:../react-dom
       '@mini-react/shared':
         specifier: workspace:*
         version: link:../shared

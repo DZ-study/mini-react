@@ -1,4 +1,5 @@
 import { beginWork } from './beginWork';
+import { completeWork } from './completeWork';
 import { FiberNode } from './FiberNode';
 
 let workInProgress: FiberNode | null = null
@@ -26,6 +27,7 @@ export function performUnitOfWork(
   let node: FiberNode | null = fiber
 
   while (node !== null) {
+    completeWork(node)
     /**
      * 有 sibling
      * 转向兄弟节点

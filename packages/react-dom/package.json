@@ -1,5 +1,5 @@
 {
-  "name": "@mini-react/reconciler",
+  "name": "@mini-react/react-dom",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +11,6 @@
   "license": "ISC",
   "packageManager": "pnpm@10.28.1",
   "dependencies": {
-    "@mini-react/react": "workspace:*",
-    "@mini-react/react-dom": "workspace:*",
-    "@mini-react/shared": "workspace:*"
+    "@mini-react/reconciler": "workspace:*"
   }
 }
