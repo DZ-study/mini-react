@@ -92,5 +92,31 @@ export namespace JSX {
     span: any
     h1: any
     p: any
+    h2: any
+    h3: any
+    h4: any
+    h5: any
+    h6: any
+    button: any
+    input: any
+    textarea: any
+    select: any
+    option: any
+    ul: any
+    li: any
+    img: any
+    a: any
+    i: any
+    svg: any
+    path: any
+    circle: any
+    rect: any
+    line: any
+    polygon: any
+    text: any
+    tspan: any
+    tpath: any
+    ttext: any
+    [key: string]: any
   }
 }

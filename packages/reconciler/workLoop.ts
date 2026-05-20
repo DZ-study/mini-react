@@ -3,6 +3,7 @@ import { completeWork } from './completeWork';
 import { FiberNode } from './FiberNode';
 
 let workInProgress: FiberNode | null = null
+let count = 0
 
 /**
  * performUnitOfWork:
@@ -12,6 +13,7 @@ let workInProgress: FiberNode | null = null
 export function performUnitOfWork(
   fiber: FiberNode
 ): FiberNode | null {
+
   const next = beginWork(fiber) // 返回的是fiber的子节点(fiber),下一个fiber
 
   fiber.memoizedProps = fiber.pendingProps

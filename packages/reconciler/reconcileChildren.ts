@@ -11,42 +11,38 @@ export function reconcileChildren(
   returnFiber: FiberNode,
   children: any
 ) {
-  // 文本节点
-  if (typeof children === "string" || typeof children === "number") {
-    const childFiber = createFiberFromText(
-      String(children)
-    )
 
-    childFiber.return = returnFiber
-    returnFiber.child = childFiber
+  returnFiber.child = null
 
-    return
+  if (!Array.isArray(children)) {
+    children = [children]
   }
 
-  // 单节点
-  if (typeof children === "object" && children !== null) {
-    const childFiber = createFiberFromElement(children)
-    childFiber.return = returnFiber // 父子关系
-    returnFiber.child = childFiber
-    return
-  }
+  let previousFiber: FiberNode | null = null
 
-  // 数组
-  if (Array.isArray(children)) {
-    let previousFiber: FiberNode | null = null
+  children.forEach((child: any, index: number) => {
 
-    children.forEach((child, index) => {
-      const childFiber = createFiberFromElement(child)
+    let childFiber: FiberNode
+
+    // 文本节点
+    if (typeof child === "string" || typeof child === "number") {
+      childFiber = createFiberFromText(
+        String(child)
+      )
+      childFiber.return = returnFiber
+      returnFiber.child = childFiber
+    } else {
+      childFiber = createFiberFromElement(child)
       childFiber.return = returnFiber
       childFiber.index = index
+    }
 
-      if (index === 0) { // 每个节点只关联第一个子节点
-        returnFiber.child = childFiber
-      } else if (previousFiber) {
-        previousFiber.sibling = childFiber
-      }
+    if (index === 0) { // 每个节点只关联第一个子节点
+      returnFiber.child = childFiber
+    } else if (previousFiber) {
+      previousFiber.sibling = childFiber
+    }
 
-      previousFiber = childFiber
-    })
-  }
+    previousFiber = childFiber
+  })
 }
