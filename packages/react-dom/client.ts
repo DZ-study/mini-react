@@ -26,7 +26,6 @@ export function createRoot(
 
       appFiber.return =
         rootFiber
-
       /**
        * 启动 render
        */

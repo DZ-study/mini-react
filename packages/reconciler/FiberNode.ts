@@ -1,5 +1,3 @@
-import type { ReactElementType } from '../react/types'
-
 export class FiberNode {
   /**
    * Fiber的类型

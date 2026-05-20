@@ -1,6 +1,6 @@
 import type { ReactElementType } from '@mini-react/react'
 import { FiberNode } from './FiberNode';
-import { FunctionComponent, HostComponent } from '@mini-react/shared/workTag';
+import { FunctionComponent, HostComponent, HostText } from '@mini-react/shared/workTag';
 
 
 export function createFiberFromElement(
@@ -23,6 +23,20 @@ export function createFiberFromElement(
   const fiber = new FiberNode(fiberTag, props, key)
 
   fiber.type = type
+
+  return fiber
+}
+
+export function createFiberFromText(
+  content: string
+) {
+  const fiber = new FiberNode(
+    HostText,
+    {
+      content
+    },
+    null
+  )
 
   return fiber
 }

@@ -5,18 +5,13 @@ export function commitRoot(
   root: FiberNode
 ) {
   const finishedWork = root.child
-
   if (finishedWork === null) {
     return
   }
-
   appendPlacementNode(
     finishedWork,
     root.stateNode
   )
-  // root.stateNode.appendChild(
-  //   finishedWork.stateNode
-  // )
 }
 
 function appendPlacementNode(
@@ -30,11 +25,9 @@ function appendPlacementNode(
   if (
     fiber.tag === HostComponent
   ) {
-
     parent.appendChild(
       fiber.stateNode
     )
-
     return
   }
 
@@ -43,13 +36,10 @@ function appendPlacementNode(
    * 继续向下找
    */
   let child = fiber.child
-
   while (child !== null) {
-
     appendPlacementNode(
       child, parent
     )
-
     child = child.sibling
   }
 }

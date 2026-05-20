@@ -1,5 +1,5 @@
 import { FiberNode } from '@mini-react/reconciler/FiberNode'
-import { HostComponent } from '../shared/workTag'
+import { HostComponent, HostText } from '@mini-react/shared/workTag'
 
 export type Container = Element
 
@@ -31,7 +31,8 @@ export function appendAllChildren(
   while (node !== null) {
 
     if ( // 最终都会走到原生dom
-      node.tag === HostComponent
+      node.tag === HostComponent ||
+      node.tag === HostText
     ) {
       appendInitialChild(
         parent,

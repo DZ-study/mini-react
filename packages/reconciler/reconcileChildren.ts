@@ -1,4 +1,4 @@
-import { createFiberFromElement } from './createFiber';
+import { createFiberFromElement, createFiberFromText } from './createFiber';
 import { FiberNode } from './FiberNode';
 
 /**
@@ -11,6 +11,18 @@ export function reconcileChildren(
   returnFiber: FiberNode,
   children: any
 ) {
+  // 文本节点
+  if (typeof children === "string" || typeof children === "number") {
+    const childFiber = createFiberFromText(
+      String(children)
+    )
+
+    childFiber.return = returnFiber
+    returnFiber.child = childFiber
+
+    return
+  }
+
   // 单节点
   if (typeof children === "object" && children !== null) {
     const childFiber = createFiberFromElement(children)
