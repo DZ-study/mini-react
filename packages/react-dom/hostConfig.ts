@@ -46,5 +46,11 @@ export function appendAllChildren(
     if (node === fiber) {
       return
     }
+
+    while (node.sibling === null) {
+      if (node.return === null || node.return === fiber) {
+        return
+      }
+    }
   }
 }

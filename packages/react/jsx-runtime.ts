@@ -81,3 +81,16 @@ export function jsxDEV(
     __self: self
   }
 }
+
+/**
+ * JSX 类型声明
+ */
+export namespace JSX {
+
+  export interface IntrinsicElements {
+    div: any
+    span: any
+    h1: any
+    p: any
+  }
+}

@@ -14,7 +14,7 @@ export function reconcileChildren(
   // 单节点
   if (typeof children === "object" && children !== null) {
     const childFiber = createFiberFromElement(children)
-    childFiber.return = returnFiber
+    childFiber.return = returnFiber // 父子关系
     returnFiber.child = childFiber
     return
   }

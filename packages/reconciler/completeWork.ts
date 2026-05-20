@@ -7,7 +7,7 @@ export function completeWork(
 ) {
   const newProps = fiber.pendingProps
 
-  switch (fiber.type) {
+  switch (fiber.tag) {
     case HostComponent:
       const instance = createInstance(fiber.type, newProps)
 

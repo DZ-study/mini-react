@@ -1,6 +1,7 @@
-import { ReactElementType } from '@mini-react/react'
+import type { ReactElementType } from '@mini-react/react'
 import { FiberNode } from './FiberNode';
 import { FunctionComponent, HostComponent } from '@mini-react/shared/workTag';
+
 
 export function createFiberFromElement(
   element: ReactElementType

@@ -1,12 +1,8 @@
 import '@mini-react/react/jsx-dev-runtime'
+import { createRoot } from '@mini-react/react-dom/client'
 
-function App() {
-  return (
-    <div>
-      <h1>Mini React Playground</h1>
-      <p>This is a playground for testing the mini React implementation.</p>
-    </div>
-  )
-}
-
-console.log(<App />);
+createRoot(document.getElementById('root')!).render(
+  <div>
+    <h1>Hello, mini react</h1>
+  </div>
+)

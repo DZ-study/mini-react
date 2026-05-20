@@ -13,6 +13,9 @@ importers:
       '@mini-react/react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@mini-react/react-dom':
+        specifier: workspace:*
+        version: link:../../packages/react-dom
     devDependencies:
       typescript:
         specifier: ~6.0.2
@@ -36,9 +39,15 @@ importers:
 
   packages/react-dom:
     dependencies:
+      '@mini-react/react':
+        specifier: workspace:*
+        version: link:../react
       '@mini-react/reconciler':
         specifier: workspace:*
         version: link:../reconciler
+      '@mini-react/shared':
+        specifier: workspace:*
+        version: link:../shared
 
   packages/reconciler:
     dependencies:

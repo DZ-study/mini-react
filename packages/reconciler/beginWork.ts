@@ -2,7 +2,7 @@
  * 根据Fiber类型，生成下一层Fiber
  */
 
-import { FunctionComponent, HostComponent } from '@mini-react/shared/workTag';
+import { FunctionComponent, HostComponent, HostRoot } from '@mini-react/shared/workTag';
 import { FiberNode } from './FiberNode';
 import { updateFunctionComponent } from './updateFunctionComponent';
 import { updateHostComponent } from './updateHostComponent';
@@ -15,6 +15,8 @@ export function beginWork(
       return updateFunctionComponent(fiber)
     case HostComponent:
       return updateHostComponent(fiber)
+    case HostRoot:
+      return fiber.child
     default:
       return null
   }
